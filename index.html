@@ -218,19 +218,7 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #BE185D;
         }
-    </style>
-
-    <!-- AOS Visibility Fix -->
-    <style>
-        /* Garante que elementos AOS no viewport inicial fiquem visíveis */
-        [data-aos]:not(.aos-animate) {
-            opacity: 1 !important;
-            transform: none !important;
-            transition: none !important;
-        }
-    </style>
-
-</head>
+    </style></head>
 <body class="bg-rose-50 text-gray-800 antialiased overflow-x-hidden">
 
     <!-- Navigation -->
@@ -927,5 +915,13 @@
             e.preventDefault();
             alert('Obrigado pelo interesse! Em um site real, esta mensagem seria enviada para nossa equipe. Entraremos em contato em breve.');
         });
-    </script></body>
+    </script><!-- AOS Fix -->
+<style>
+[data-aos]:not(.aos-animate) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+</style>
+</body>
 </html>
