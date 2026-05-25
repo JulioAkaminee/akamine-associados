@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akamine & Associados | Advocacia e Assessoria Jurídica em Bragança Paulista</title>
+    <meta name="description" content="Escritório de advocacia em Bragança Paulista. Atuação em direito cível, trabalhista, empresarial, previdenciário e tributário. Consulta inicial gratuita.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rose: {
+                            50: '#FDF2F8',
+                            100: '#FCE7F3',
+                            200: '#FBCFE8',
+                            300: '#F9A8D4',
+                            400: '#F472B6',
+                            500: '#EC4899',
+                            600: '#DB2777',
+                            700: '#BE185D',
+                            800: '#9D174D',
+                            900: '#831843',
+                        },
+                        gold: {
+                            50: '#FFFBEB',
+                            100: '#FEF3C7',
+                            200: '#FDE68A',
+                            300: '#FCD34D',
+                            400: '#FBBF24',
+                            500: '#F59E0B',
+                            600: '#D97706',
+                            700: '#A16207',
+                            800: '#92400E',
+                            900: '#78350F',
+                        }
+                    },
+                    fontFamily: {
+                        'garamond': ['"EB Garamond"', 'serif'],
+                        'lato': ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'EB Garamond', serif;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(190, 24, 93, 0.92), rgba(161, 98, 7, 0.85)), url('https://images.unsplash.com/photo-1589829545856-dc0dda7de2f8?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #A16207 0%, #D97706 50%, #A16207 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-scrolled {
+            background-color: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .nav-scrolled .nav-link {
+            color: #374151 !important;
+        }
+        
+        .nav-scrolled .nav-logo {
+            color: #BE185D !important;
+        }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(190, 24, 93, 0.12);
+        }
+        
+        .service-card:hover .service-icon {
+            background-color: #BE185D;
+            color: white;
+            transform: rotateY(360deg);
+        }
+        
+        .service-icon {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #BE185D 0%, #DB2777 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #9D174D 0%, #BE185D 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(190, 24, 93, 0.3);
+        }
+        
+        .btn-outline-gold {
+            border: 2px solid #A16207;
+            color: #A16207;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-gold:hover {
+            background-color: #A16207;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .divider-gold {
+            height: 3px;
+            width: 60px;
+            background: linear-gradient(90deg, #A16207, #D97706, #A16207);
+            border-radius: 3px;
+        }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .image-reveal {
+            overflow: hidden;
+        }
+        
+        .image-reveal img {
+            transition: transform 0.7s ease;
+        }
+        
+        .image-reveal:hover img {
+            transform: scale(1.08);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .input-field:focus {
+            border-color: #BE185D;
+            box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.1);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #FDF2F8;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #DB2777;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #BE185D;
+        }
+    </style>
+</head>
+<body class="bg-rose-50 text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2 group">
+                    <div class="w-10 h-10 bg-gradient-to-br from-rose-600 to-gold-700 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-rose-500/30 transition-all">
+                        <i data-lucide="scale" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="nav-logo text-white font-garamond text-xl font-bold tracking-wide transition-colors">Akamine <span class="text-gold-400">&</span> Associados</span>
+                        <span class="nav-logo text-white/70 text-[10px] uppercase tracking-[0.2em] font-lato transition-colors">Advocacia</span>
+                    </div>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#areas" class="nav-link text-white/90 hover:text-white font-lato text-sm uppercase tracking-wider transition-colors relative group">
+                        Áreas de Atuação
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-400 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#diferenciais" class="nav-link text-white/90 hover:text-white font-lato text-sm uppercase tracking-wider transition-colors relative group">
+                        Diferenciais
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-400 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#depoimentos" class="nav-link text-white/90 hover:text-white font-lato text-sm uppercase tracking-wider transition-colors relative group">
+                        Depoimentos
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-400 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#contato" class="btn-primary px-6 py-2.5 rounded-full text-white font-lato text-sm uppercase tracking-wider font-bold">
+                        Consulta Grátis
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-white shadow-2xl z-50 md:hidden">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="font-garamond text-xl font-bold text-rose-700">Menu</span>
+                    <button id="close-menu-btn" class="text-gray-600 p-2">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-4">
+                    <a href="#areas" class="text-gray-800 font-lato text-lg py-2 border-b border-gray-100">Áreas de Atuação</a>
+                    <a href="#diferenciais" class="text-gray-800 font-lato text-lg py-2 border-b border-gray-100">Diferenciais</a>
+                    <a href="#depoimentos" class="text-gray-800 font-lato text-lg py-2 border-b border-gray-100">Depoimentos</a>
+                    <a href="#contato" class="btn-primary px-6 py-3 rounded-full text-white font-lato text-center font-bold mt-4">Consulta Grátis</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-rose-50/10"></div>
+        
+        <!-- Floating decorative elements -->
+        <div class="absolute top-1/4 left-10 w-32 h-32 border border-white/10 rounded-full floating-element" style="animation-delay: 0s;"></div>
+        <div class="absolute bottom-1/3 right-20 w-48 h-48 border border-gold-400/20 rounded-full floating-element" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/3 right-1/4 w-20 h-20 bg-gold-400/10 rounded-full floating-element" style="animation-delay: 1s;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="1200">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="divider-gold"></div>
+                        <span class="text-gold-300 font-lato text-sm uppercase tracking-[0.2em] font-bold">Bragança Paulista · SP</span>
+                    </div>
+                    
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-garamond font-bold text-white leading-[1.1] mb-6">
+                        Excelência em <br>
+                        <span class="text-gold-300 italic">Direito</span> e <br>
+                        Assessoria Jurídica
+                    </h1>
+                    
+                    <p class="text-white/80 text-lg sm:text-xl font-lato leading-relaxed mb-8 max-w-lg">
+                        Há mais de 15 anos defendendo seus direitos com ética, comprometimento e resultados. Sua tranquilidade é nossa maior conquista.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-white font-lato font-bold uppercase tracking-wider text-center inline-flex items-center justify-center gap-2">
+                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                            Agende sua Consulta
+                        </a>
+                        <a href="#areas" class="btn-outline-gold px-8 py-4 rounded-full font-lato font-bold uppercase tracking-wider text-center inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-rose-700">
+                            <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                            Conheça Nossas Áreas
+                        </a>
+                    </div>
+                    
+                    <div class="mt-12 flex items-center space-x-8">
+                        <div class="flex -space-x-3">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&h=100&q=80" alt="Advogada" class="w-12 h-12 rounded-full border-2 border-white object-cover">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&h=100&q=80" alt="Advogado" class="w-12 h-12 rounded-full border-2 border-white object-cover">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&h=100&q=80" alt="Advogada" class="w-12 h-12 rounded-full border-2 border-white object-cover">
+                        </div>
+                        <div>
+                            <p class="text-white font-bold text-lg">+2.500</p>
+                            <p class="text-white/70 text-sm">Casos de sucesso</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:block" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-gold-400/20 to-rose-500/20 rounded-3xl blur-2xl"></div>
+                        <div class="relative image-reveal rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=800&q=80" alt="Escritório de Advocacia Akamine & Associados - Ambiente profissional em Bragança Paulista" class="w-full h-[500px] object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-rose-900/90 to-transparent p-8">
+                                <p class="text-white font-garamond text-2xl italic">"A justiça é a constante e perpetua vontade de dar a cada um o que é seu."</p>
+                                <p class="text-gold-300 mt-2 font-lato text-sm">— Ulpiano</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
+            <a href="#areas" class="text-white/60 hover:text-white transition-colors">
+                <i data-lucide="chevron-down" class="w-8 h-8"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white relative -mt-1">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up" data-aos-duration="800">
+                <div class="text-center p-6 rounded-2xl hover:bg-rose-50 transition-colors">
+                    <p class="stat-number text-4xl sm:text-5xl font-garamond font-bold gold-gradient-text mb-2">15+</p>
+                    <p class="text-gray-600 font-lato text-sm uppercase tracking-wider">Anos de Experiência</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl hover:bg-rose-50 transition-colors">
+                    <p class="stat-number text-4xl sm:text-5xl font-garamond font-bold gold-gradient-text mb-2">2.500+</p>
+                    <p class="text-gray-600 font-lato text-sm uppercase tracking-wider">Casos Resolvidos</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl hover:bg-rose-50 transition-colors">
+                    <p class="stat-number text-4xl sm:text-5xl font-garamond font-bold gold-gradient-text mb-2">98%</p>
+                    <p class="text-gray-600 font-lato text-sm uppercase tracking-wider">Taxa de Sucesso</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl hover:bg-rose-50 transition-colors">
+                    <p class="stat-number text-4xl sm:text-5xl font-garamond font-bold gold-gradient-text mb-2">500+</p>
+                    <p class="text-gray-600 font-lato text-sm uppercase tracking-wider">Clientes Satisfeitos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Atuação -->
+    <section id="areas" class="py-24 bg-rose-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <div class="divider-gold"></div>
+                    <span class="text-rose-600 font-lato text-sm uppercase tracking-[0.2em] font-bold">Nosso Expertise</span>
+                    <div class="divider-gold"></div>
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-garamond font-bold text-gray-900 mb-4">Áreas de Atuação</h2>
+                <p class="text-gray-600 font-lato text-lg max-w-2xl mx-auto">Atuamos com excelência nas principais áreas do direito, oferecendo soluções jurídicas personalizadas para cada cliente.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Direito Cível -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg border border-rose-100" data-aos="fade-up" data-aos-delay="0">
+                    <div class="service-icon w-16 h-16 bg-rose-50 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="file-text" class="w-8 h-8 text-rose-600"></i>
+                    </div>
+                    <h3 class="font-garamond text-2xl font-bold text-gray-900 mb-3">Direito Cível</h3>
+                    <p class="text-gray-600 font-lato leading-relaxed mb-4">Atuação em contratos, responsabilidade civil, direito das obrigações, família e sucessões. Defendemos seus direitos com dedicação e expertise.</p>
+                    <ul class="space-y-2 text-gray-500 font-lato text-sm">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Ações de indenização</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Contratos e obrigações</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Família e sucessões</li>
+                    </ul>
+                </div>
+                
+                <!-- Direito Trabalhista -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg border border-rose-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon w-16 h-16 bg-rose-50 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="briefcase" class="w-8 h-8 text-rose-600"></i>
+                    </div>
+                    <h3 class="font-garamond text-2xl font-bold text-gray-900 mb-3">Direito Trabalhista</h3>
+                    <p class="text-gray-600 font-lato leading-relaxed mb-4">Representação em reclamações trabalhistas, defesa de empresas, acordos coletivos e assessoria preventiva na relação empregatícia.</p>
+                    <ul class="space-y-2 text-gray-500 font-lato text-sm">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Reclamações trabalhistas</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Defesa de empresas</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Assessoria preventiva</li>
+                    </ul>
+                </div>
+                
+                <!-- Direito Empresarial -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg border border-rose-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon w-16 h-16 bg-rose-50 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="building-2" class="w-8 h-8 text-rose-600"></i>
+                    </div>
+                    <h3 class="font-garamond text-2xl font-bold text-gray-900 mb-3">Direito Empresarial</h3>
+                    <p class="text-gray-600 font-lato leading-relaxed mb-4">Consultoria societária, contratos comerciais, fusões e aquisições, propriedade intelectual e governança corporativa para seu negócio.</p>
+                    <ul class="space-y-2 text-gray-500 font-lato text-sm">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Constituição de empresas</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Contratos comerciais</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Fusões e aquisições</li>
+                    </ul>
+                </div>
+                
+                <!-- Direito Previdenciário -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg border border-rose-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon w-16 h-16 bg-rose-50 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-rose-600"></i>
+                    </div>
+                    <h3 class="font-garamond text-2xl font-bold text-gray-900 mb-3">Direito Previdenciário</h3>
+                    <p class="text-gray-600 font-lato leading-relaxed mb-4">Aposentadorias, auxílios, revisão de benefícios e ações contra o INSS. Garantimos seus direitos previdenciários com segurança jurídica.</p>
+                    <ul class="space-y-2 text-gray-500 font-lato text-sm">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Aposentadorias</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Auxílio-doença e invalidez</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Revisão de benefícios</li>
+                    </ul>
+                </div>
+                
+                <!-- Direito Tributário -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg border border-rose-100" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon w-16 h-16 bg-rose-50 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="calculator" class="w-8 h-8 text-rose-600"></i>
+                    </div>
+                    <h3 class="font-garamond text-2xl font-bold text-gray-900 mb-3">Direito Tributário</h3>
+                    <p class="text-gray-600 font-lato leading-relaxed mb-4">Planejamento tributário, defesa em fiscalizações, recuperação de créditos e consultoria para redução legal da carga tributária.</p>
+                    <ul class="space-y-2 text-gray-500 font-lato text-sm">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Planejamento tributário</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Defesa administrativa</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Recuperação de créditos</li>
+                    </ul>
+                </div>
+                
+                <!-- Assessoria Jurídica -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-lg border border-rose-100" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon w-16 h-16 bg-rose-50 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="users" class="w-8 h-8 text-rose-600"></i>
+                    </div>
+                    <h3 class="font-garamond text-2xl font-bold text-gray-900 mb-3">Assessoria Jurídica</h3>
+                    <p class="text-gray-600 font-lato leading-relaxed mb-4">Acompanhamento preventivo e contínuo para pessoas físicas e jurídicas. Antecipamos riscos e protegemos seus interesses.</p>
+                    <ul class="space-y-2 text-gray-500 font-lato text-sm">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Consultoria preventiva</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Análise de contratos</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-600"></i> Auditoria jurídica</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais / Experiência -->
+    <section id="diferenciais" class="py-24 bg-white relative overflow-hidden">
+        <!-- Decorative background -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-rose-50/50 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="divider-gold"></div>
+                        <span class="text-rose-600 font-lato text-sm uppercase tracking-[0.2em] font-bold">Por que nos escolher</span>
+                    </div>
+                    <h2 class="text-4xl sm:text-5xl font-garamond font-bold text-gray-900 mb-6">Diferenciais que Constroem <span class="text-rose-600 italic">Confiança</span></h2>
+                    <p class="text-gray-600 font-lato text-lg leading-relaxed mb-8">
+                        No Akamine & Associados, cada caso é tratado com a atenção e dedicação que merece. Nossa equipe combina experiência sólida com uma abordagem humanizada, sempre priorizando a resolução eficiente e a satisfação do cliente.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4 group">
+                            <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-rose-600 transition-colors">
+                                <i data-lucide="award" class="w-6 h-6 text-rose-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-garamond text-xl font-bold text-gray-900 mb-1">Excelência Comprovada</h4>
+                                <p class="text-gray-600 font-lato">Mais de 15 anos de atuação com resultados consistentes e reconhecidos pela comunidade jurídica de Bragança Paulista.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 group">
+                            <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-rose-600 transition-colors">
+                                <i data-lucide="heart-handshake" class="w-6 h-6 text-rose-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-garamond text-xl font-bold text-gray-900 mb-1">Atendimento Humanizado</h4>
+                                <p class="text-gray-600 font-lato">Cada cliente é único. Oferecemos escuta ativa, comunicação transparente e acompanhamento próximo em todas as fases do processo.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 group">
+                            <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-rose-600 transition-colors">
+                                <i data-lucide="zap" class="w-6 h-6 text-rose-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-garamond text-xl font-bold text-gray-900 mb-1">Agilidade e Eficiência</h4>
+                                <p class="text-gray-600 font-lato">Processos otimizados e tecnologia de ponta para resolver sua demanda no menor tempo possível, sem perder a qualidade.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 group">
+                            <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-rose-600 transition-colors">
+                                <i data-lucide="lock" class="w-6 h-6 text-rose-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-garamond text-xl font-bold text-gray-900 mb-1">Sigilo Absoluto</h4>
+                                <p class="text-gray-600 font-lato">Compromisso inabalável com a confidencialidade. Suas informações estão seguras conosco, sempre.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-br from-rose-200/30 to-gold-200/30 rounded-3xl"></div>
+                        <div class="relative image-reveal rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Equipe de advogados em reunião profissional" class="w-full h-[600px] object-cover">
+                        </div>
+                        
+                        <!-- Floating badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl" data-aos="zoom-in" data-aos-delay="600">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 bg-gradient-to-br from-rose-500 to-gold-600 rounded-full flex items-center justify-center">
+                                    <i data-lucide="trophy" class="w-7 h-7 text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="font-garamond text-2xl font-bold text-gray-900">Top 3</p>
+                                    <p class="text-gray-500 font-lato text-sm">Escritórios da Região</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="py-24 bg-gradient-to-b from-rose-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <div class="divider-gold"></div>
+                    <span class="text-rose-600 font-lato text-sm uppercase tracking-[0.2em] font-bold">Depoimentos</span>
+                    <div class="divider-gold"></div>
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-garamond font-bold text-gray-900 mb-4">O Que Nossos Clientes <span class="text-rose-600 italic">Dizem</span></h2>
+                <p class="text-gray-600 font-lato text-lg max-w-2xl mx-auto">A satisfação de quem confiou em nosso trabalho é o nosso maior reconhecimento.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Depoimento 1 -->
+                <div class="testimonial-card bg-white rounded-2xl p-8 shadow-lg border border-rose-100 relative" data-aos="fade-up" data-aos-delay="0">
+                    <div class="absolute -top-4 left-8 w-10 h-10 bg-rose-600 rounded-full flex items-center justify-center">
+                        <i data-lucide="quote" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div class="flex items-center gap-1 mb-4 mt-2">
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                    </div>
+                    <p class="text-gray-600 font-lato leading-relaxed mb-6 italic">
+                        "O Akamine & Associados foi fundamental na resolução do meu caso trabalhista. A equipe foi extremamente atenciosa, sempre me mantendo informada sobre cada etapa. Recomendo de olhos fechados!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80" alt="Ana Carolina Mendes" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <p class="font-garamond font-bold text-gray-900">Ana Carolina Mendes</p>
+                            <p class="text-gray-500 font-lato text-sm">Professora · Bragança Paulista</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 2 -->
+                <div class="testimonial-card bg-white rounded-2xl p-8 shadow-lg border border-rose-100 relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute -top-4 left-8 w-10 h-10 bg-rose-600 rounded-full flex items-center justify-center">
+                        <i data-lucide="quote" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div class="flex items-center gap-1 mb-4 mt-2">
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                    </div>
+                    <p class="text-gray-600 font-lato leading-relaxed mb-6 italic">
+                        "Profissionais excelentes! Resolveram uma questão empresarial complexa que outros escritórios não conseguiram. A dedicação e o conhecimento da equipe fazem toda a diferença."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80" alt="Roberto Ferreira" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <p class="font-garamond font-bold text-gray-900">Roberto Ferreira</p>
+                            <p class="text-gray-500 font-lato text-sm">Empresário · Atibaia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 3 -->
+                <div class="testimonial-card bg-white rounded-2xl p-8 shadow-lg border border-rose-100 relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute -top-4 left-8 w-10 h-10 bg-rose-600 rounded-full flex items-center justify-center">
+                        <i data-lucide="quote" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div class="flex items-center gap-1 mb-4 mt-2">
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-gold-500 fill-gold-500"></i>
+                    </div>
+                    <p class="text-gray-600 font-lato leading-relaxed mb-6 italic">
+                        "Consegui minha aposentadoria graças ao trabalho incansável do escritório. Eles cuidaram de tudo com muita competência e me deram tranquilidade durante todo o processo."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&h=100&q=80" alt="Maria Helena Souza" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <p class="font-garamond font-bold text-gray-900">Maria Helena Souza</p>
+                            <p class="text-gray-500 font-lato text-sm">Aposentada · Bragança Paulista</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consulta Inicial Gratuita -->
+    <section id="contato" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-rose-700 via-rose-800 to-rose-900"></div>
+        <div class="absolute inset-0 opacity-10" style="background-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;"></div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute top-0 left-0 w-full h-full">
+            <div class="absolute top-20 left-20 w-64 h-64 border border-white/10 rounded-full floating-element"></div>
+            <div class="absolute bottom-20 right-20 w-48 h-48 border border-gold-400/20 rounded-full floating-element" style="animation-delay: 3s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="divider-gold bg-gold-400"></div>
+                        <span class="text-gold-300 font-lato text-sm uppercase tracking-[0.2em] font-bold">Entre em Contato</span>
+                    </div>
+                    <h2 class="text-4xl sm:text-5xl font-garamond font-bold text-white mb-6">Consulta Inicial <span class="text-gold-300 italic">Gratuita</span></h2>
+                    <p class="text-white/80 font-lato text-lg leading-relaxed mb-8">
+                        Tire suas dúvidas sem compromisso. Nossa equipe está pronta para analisar seu caso e apresentar as melhores soluções jurídicas para você ou sua empresa.
+                    </p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                                <i data-lucide="map-pin" class="w-6 h-6 text-gold-300"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-lato font-bold">Endereço</p>
+                                <p class="text-white/70 font-lato">Av. Cel. Octaviano Pereira, 456 · Centro</p>
+                                <p class="text-white/70 font-lato">Bragança Paulista · SP · CEP 12900-000</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                                <i data-lucide="phone" class="w-6 h-6 text-gold-300"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-lato font-bold">Telefone</p>
+                                <p class="text-white/70 font-lato">(11) 4033-2045</p>
+                                <p class="text-white/70 font-lato">(11) 9 8765-4321 (WhatsApp)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                                <i data-lucide="mail" class="w-6 h-6 text-gold-300"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-lato font-bold">E-mail</p>
+                                <p class="text-white/70 font-lato">contato@akamineadvogados.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                                <i data-lucide="clock" class="w-6 h-6 text-gold-300"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-lato font-bold">Horário de Funcionamento</p>
+                                <p class="text-white/70 font-lato">Segunda a Sexta: 9h às 18h</p>
+                                <p class="text-white/70 font-lato">Sábado: 9h às 12h (com agendamento)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <form class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl">
+                        <h3 class="font-garamond text-2xl font-bold text-white mb-6">Agende sua Consulta</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-white/80 font-lato text-sm mb-2">Nome completo</label>
+                                <input type="text" class="input-field w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 font-lato focus:outline-none transition-all" placeholder="Digite seu nome">
+                            </div>
+                            
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-white/80 font-lato text-sm mb-2">E-mail</label>
+                                    <input type="email" class="input-field w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 font-lato focus:outline-none transition-all" placeholder="seu@email.com">
+                                </div>
+                                <div>
+                                    <label class="block text-white/80 font-lato text-sm mb-2">Telefone</label>
+                                    <input type="tel" class="input-field w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 font-lato focus:outline-none transition-all" placeholder="(11) 9 0000-0000">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-white/80 font-lato text-sm mb-2">Área de interesse</label>
+                                <select class="input-field w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-lato focus:outline-none transition-all">
+                                    <option value="" class="text-gray-800">Selecione uma área</option>
+                                    <option value="civel" class="text-gray-800">Direito Cível</option>
+                                    <option value="trabalhista" class="text-gray-800">Direito Trabalhista</option>
+                                    <option value="empresarial" class="text-gray-800">Direito Empresarial</option>
+                                    <option value="previdenciario" class="text-gray-800">Direito Previdenciário</option>
+                                    <option value="tributario" class="text-gray-800">Direito Tributário</option>
+                                    <option value="assessoria" class="text-gray-800">Assessoria Jurídica</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-white/80 font-lato text-sm mb-2">Mensagem</label>
+                                <textarea rows="4" class="input-field w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 font-lato focus:outline-none transition-all resize-none" placeholder="Descreva brevemente sua demanda..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-gradient-to-r from-gold-600 to-gold-700 hover:from-gold-500 hover:to-gold-600 text-white font-lato font-bold uppercase tracking-wider py-4 rounded-xl transition-all transform hover:translate-y-[-2px] hover:shadow-lg">
+                                Enviar Solicitação
+                            </button>
+                            
+                            <p class="text-white/50 text-xs font-lato text-center">Responderemos em até 24 horas úteis. Seus dados estão seguros e protegidos.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-rose-500 to-gold-600 rounded-lg flex items-center justify-center">
+                            <i data-lucide="scale" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-garamond text-xl font-bold tracking-wide">Akamine <span class="text-gold-400">&</span> Associados</span>
+                            <span class="text-white/50 text-[10px] uppercase tracking-[0.2em] font-lato">Advocacia e Assessoria Jurídica</span>
+                        </div>
+                    </div>
+                    <p class="text-white/60 font-lato leading-relaxed mb-6 max-w-md">
+                        Há mais de 15 anos oferecendo serviços jurídicos de excelência em Bragança Paulista e região. Nosso compromisso é com a justiça, a ética e os resultados de nossos clientes.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-rose-600 transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-rose-600 transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-rose-600 transition-colors">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-rose-600 transition-colors">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Links Rápidos -->
+                <div>
+                    <h4 class="font-garamond text-lg font-bold mb-4 text-gold-300">Links Rápidos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#areas" class="text-white/60 hover:text-white font-lato text-sm transition-colors">Áreas de Atuação</a></li>
+                        <li><a href="#diferenciais" class="text-white/60 hover:text-white font-lato text-sm transition-colors">Diferenciais</a></li>
+                        <li><a href="#depoimentos" class="text-white/60 hover:text-white font-lato text-sm transition-colors">Depoimentos</a></li>
+                        <li><a href="#contato" class="text-white/60 hover:text-white font-lato text-sm transition-colors">Contato</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white font-lato text-sm transition-colors">Blog Jurídico</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Áreas -->
+                <div>
+                    <h4 class="font-garamond text-lg font-bold mb-4 text-gold-300">Áreas de Atuação</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#areas" class="text-white/60 hover:text-white font-lato text-sm transition-colors">Direito Cível</a></li>
+                        <li><a href="#areas" class="text-white/60 hover:text-white font-lato text-sm transition-colors">Direito Trabalhista</a></li>
+                        <li><a href="#areas" class="text-white/60 hover:text-white font-lato text-sm transition-colors">Direito Empresarial</a></li>
+                        <li><a href="#areas" class="text-white/60 hover:text-white font-lato text-sm transition-colors">Direito Previdenciário</a></li>
+                        <li><a href="#areas" class="text-white/60 hover:text-white font-lato text-sm transition-colors">Direito Tributário</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/40 font-lato text-sm">
+                    © 2024 Akamine & Associados Advocacia. Todos os direitos reservados.
+                </p>
+                <p class="text-white/40 font-lato text-xs">
+                    OAB/SP 123.456 · CNPJ 12.345.678/0001-90
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5511987654321" target="_blank" class="fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all transform hover:scale-110" data-aos="zoom-in" data-aos-delay="1000">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-2');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+                navbar.classList.remove('py-2');
+                navbar.classList.add('py-4');
+            }
+        });
+        
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+        
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Form submission (prevent default for demo)
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Obrigado pelo interesse! Em um site real, esta mensagem seria enviada para nossa equipe. Entraremos em contato em breve.');
+        });
+    </script>
+</body>
+</html>
