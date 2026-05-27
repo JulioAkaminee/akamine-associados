@@ -16,17 +16,20 @@ O projeto reflete a identidade única de um escritório de advocacia: **autorida
 
 ## Características
 
-- **Design responsivo** — adaptado para desktop, tablet e mobile
-- **Animações ricas** — AOS (Animate On Scroll) para transições suaves e envolventes
-- **Imagens reais do nicho** — fotografias profissionais de ambientes jurídicos e corporativos
-- **Tipografia elegante** — EB Garamond para títulos e Lato para corpo de texto
-- **Paleta de cores exclusiva** — rosa profundo (#DB2777) + dourado elegante (#A16207) + fundo rosa claro (#FDF2F8)
+- **Design responsivo mobile-first** — tipografia fluida com `clamp()`, adaptado para desktop, tablet e mobile
+- **Animações sob medida** — motor de scroll-reveal com Intersection Observer, stagger, parallax suave e count-up de estatísticas (CSS + JS vanilla, sem bibliotecas)
+- **Glassmorphism** — navbar, formulário e badges com `backdrop-filter` e camadas de sombra
+- **Imagens reais do nicho** — fotografias profissionais de ambientes jurídicos e corporativos (Pexels), com `loading="lazy"`
+- **Tipografia premium** — Fraunces (display serif) para títulos e Inter para corpo de texto
+- **Paleta sóbria** — azul-marinho profundo (#0A1626) + dourado champanhe (#CFA54E), transmitindo autoridade e confiança
 - **Ícones vetoriais** — Lucide Icons para consistência visual
-- **Navegação fixa inteligente** — navbar que muda de aparência ao rolar a página
-- **Menu mobile** — slide-in para dispositivos móveis
-- **Formulário de contato** — com validação visual e estilo glassmorphism
-- **Botão flutuante WhatsApp** — para contato direto e rápido
-- **SEO-friendly** — meta tags e estrutura semântica otimizadas
+- **Navegação fixa inteligente** — navbar com transição de estado (glass) ao rolar a página
+- **Menu mobile animado** — hambúrguer com morphing para "X", drawer slide-in com backdrop e links em stagger
+- **Formulário de contato** — validação nativa, `aria-live` e estilo glassmorphism
+- **Botão flutuante WhatsApp** — com pulso animado para contato direto
+- **Acessibilidade WCAG AA** — skip link, `aria-label`/`aria-expanded`, foco visível, `prefers-reduced-motion`
+- **Performance** — `preconnect`/`dns-prefetch`, lazy loading e animações aceleradas por GPU
+- **SEO-friendly** — meta tags, Open Graph e estrutura semântica otimizadas
 
 ---
 
@@ -46,12 +49,12 @@ O projeto reflete a identidade única de um escritório de advocacia: **autorida
 
 | Tecnologia | Uso |
 |------------|-----|
-| HTML5 | Estrutura semântica e acessível |
+| HTML5 | Estrutura semântica e acessível (single-file) |
 | Tailwind CSS (CDN) | Estilização utilitária e responsiva |
-| AOS | Animações de scroll |
+| Intersection Observer + CSS | Animações de scroll, stagger, parallax e count-up (sem dependências) |
 | Lucide Icons | Ícones vetoriais consistentes |
-| Google Fonts | EB Garamond + Lato |
-| JavaScript Vanilla | Interatividade (menu, scroll, formulário) |
+| Google Fonts | Fraunces + Inter |
+| JavaScript Vanilla | Interatividade (menu, scroll, parallax, formulário) |
 
 ---
 
@@ -59,10 +62,10 @@ O projeto reflete a identidade única de um escritório de advocacia: **autorida
 
 | Cor | Hex | Uso |
 |-----|-----|-----|
-| Rosa Profundo | `#DB2777` | Destaques, botões primários, ícones |
-| Dourado Elegante | `#A16207` | Gradientes, acentos, elementos premium |
-| Fundo Rosa Claro | `#FDF2F8` | Background de seções |
-| Rosa Escuro | `#BE185D` | Hover states, headings |
+| Azul-marinho profundo | `#0A1626` | Hero, footer, textos de título, fundos escuros |
+| Azul-aço | `#283F61` | Textos, ícones, navegação |
+| Dourado champanhe | `#CFA54E` | Acentos, gradientes, botões, elementos premium |
+| Off-white | `#FBFAF7` | Background de seções |
 
 ---
 
@@ -92,7 +95,7 @@ start index.html
 - **Design & Conceito:** Akamine Web Studio
 - **Imagens:** Unsplash (fotos livres de direitos autorais)
 - **Ícones:** Lucide Icons
-- **Fontes:** Google Fonts (EB Garamond, Lato)
+- **Fontes:** Google Fonts (Fraunces, Inter)
 
 ---
 
